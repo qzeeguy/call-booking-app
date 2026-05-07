@@ -40,12 +40,7 @@
     "@cabify/prom-react": "^0.2.1"
   },
   "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/vite/plugin",
       "options": {
@@ -68,12 +63,7 @@
         "testMode": "watch"
       }
     },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    }
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } }
   ],
   "generators": {
     "@nx/react": {
@@ -83,13 +73,9 @@
         "linter": "eslint",
         "bundler": "vite"
       },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     }
-  }
+  },
+  "nxCloudId": "69fc94487588522835fa1a20"
 }
