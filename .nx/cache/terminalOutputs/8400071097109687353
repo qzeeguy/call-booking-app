@@ -1,0 +1,10 @@
+> vite build
+
+[36mvite v8.0.11 [32mbuilding client environment for production...[36m[39m
+[2Ktransforming (14) [2m../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/cjs/react-dom.production.m[2K[32m✓[39m 16 modules transformed.
+[2Krendering chunks (1)...[2Kcomputing gzip size...
+[2K[2m../dist/admin-ui/[0m[32mindex.html                 [39m[2m[1m  0.47 kB[0m[0m[2m │ gzip:  0.29 kB[0m
+[2m../dist/admin-ui/[0m[2massets/[0m[35mindex-x1XGuNl0.css  [39m[2m[1m  0.00 kB[0m[0m[2m │ gzip:  0.02 kB[0m
+[2m../dist/admin-ui/[0m[2massets/[0m[36mindex-6Igj2m8V.js   [39m[2m[1m166.05 kB[0m[0m[2m │ gzip: 52.08 kB[0m
+
+[32m✓ built in 599ms[39m

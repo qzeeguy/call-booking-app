@@ -1,0 +1,830 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.7.1",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/vitest",
+      "version": "22.7.1",
+      "options": {
+        "testTargetName": "test",
+        "ciTargetName": "test-ci",
+        "testMode": "watch"
+      }
+    },
+    {
+      "name": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    }
+  ],
+  "fileMap": {
+    "projectFileMap": {
+      "admin-ui-e2e": [
+        {
+          "file": "admin-ui-e2e/eslint.config.cjs",
+          "hash": "7639167129244439463",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "admin-ui-e2e/playwright.config.ts",
+          "hash": "12573936044707968037",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "admin-ui-e2e/project.json",
+          "hash": "17954160211330953318"
+        },
+        {
+          "file": "admin-ui-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "admin-ui-e2e/tsconfig.json",
+          "hash": "8714607179129573500"
+        }
+      ],
+      "user-api": [
+        {
+          "file": "apps/user-api/.gitignore",
+          "hash": "2836708013400663046"
+        },
+        {
+          "file": "apps/user-api/Dockerfile",
+          "hash": "16471340161141624609"
+        },
+        {
+          "file": "apps/user-api/README.md",
+          "hash": "12818855484414492690"
+        },
+        {
+          "file": "apps/user-api/config/db.js",
+          "hash": "16946435692734860131",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/user-api/controllers/bookingControllers.js",
+          "hash": "4971912372297280991",
+          "deps": [
+            "npm:express-async-handler"
+          ]
+        },
+        {
+          "file": "apps/user-api/controllers/healthControllers.js",
+          "hash": "10440082605584519439",
+          "deps": [
+            "npm:express-async-handler"
+          ]
+        },
+        {
+          "file": "apps/user-api/metrics.js",
+          "hash": "6316563247249709811",
+          "deps": [
+            "npm:prom-client"
+          ]
+        },
+        {
+          "file": "apps/user-api/middlewares/errorMiddleware.js",
+          "hash": "16315440422001865469"
+        },
+        {
+          "file": "apps/user-api/models/bookingModel.js",
+          "hash": "2865448956650242993",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/user-api/pnpm-lock.yaml",
+          "hash": "17644326953179042929"
+        },
+        {
+          "file": "apps/user-api/project.json",
+          "hash": "4051336668401452526"
+        },
+        {
+          "file": "apps/user-api/routes/booking.js",
+          "hash": "9448461610339414033",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/user-api/routes/health.js",
+          "hash": "10176385365339243690",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/user-api/routes/index.js",
+          "hash": "16292582229125504",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/user-api/server.js",
+          "hash": "2073116911335554216",
+          "deps": [
+            "npm:dotenv",
+            "npm:express",
+            "npm:cors",
+            "npm:prom-client"
+          ]
+        },
+        {
+          "file": "apps/user-api/utils/mail.js",
+          "hash": "14699635698953399258",
+          "deps": [
+            "npm:nodemailer"
+          ]
+        },
+        {
+          "file": "apps/user-api/utils/uploadFile.js",
+          "hash": "14880056245085518190",
+          "deps": [
+            "npm:multer",
+            "npm:multer-gridfs-storage"
+          ]
+        }
+      ],
+      "admin-ui": [
+        {
+          "file": "admin-ui/.eslintrc.json",
+          "hash": "4545653524409855784"
+        },
+        {
+          "file": "admin-ui/index.html",
+          "hash": "4433331561883772515"
+        },
+        {
+          "file": "admin-ui/project.json",
+          "hash": "669575943184422044"
+        },
+        {
+          "file": "admin-ui/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "admin-ui/src/app/app.module.css",
+          "hash": "8887387885984320532"
+        },
+        {
+          "file": "admin-ui/src/app/app.spec.tsx",
+          "hash": "16306883901810338700",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "admin-ui/src/app/app.tsx",
+          "hash": "841840806913309070"
+        },
+        {
+          "file": "admin-ui/src/app/nx-welcome.tsx",
+          "hash": "2348102959109701629"
+        },
+        {
+          "file": "admin-ui/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "admin-ui/src/main.tsx",
+          "hash": "11332670511827407186",
+          "deps": [
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "admin-ui/src/styles.css",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "admin-ui/tsconfig.app.json",
+          "hash": "13403476513633183731"
+        },
+        {
+          "file": "admin-ui/tsconfig.json",
+          "hash": "8372035408268418786"
+        },
+        {
+          "file": "admin-ui/tsconfig.spec.json",
+          "hash": "11887952472848760817"
+        },
+        {
+          "file": "admin-ui/vite.config.mts",
+          "hash": "9889092763802682465",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-react",
+            "npm:@nx/vite"
+          ]
+        }
+      ],
+      "user-ui": [
+        {
+          "file": "user-ui/.eslintrc.json",
+          "hash": "4545653524409855784"
+        },
+        {
+          "file": "user-ui/index.html",
+          "hash": "8939672580296849442"
+        },
+        {
+          "file": "user-ui/project.json",
+          "hash": "13804970303635649347"
+        },
+        {
+          "file": "user-ui/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "user-ui/src/app/app.module.css",
+          "hash": "8887387885984320532"
+        },
+        {
+          "file": "user-ui/src/app/app.spec.tsx",
+          "hash": "12343356419704232828",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "user-ui/src/app/app.tsx",
+          "hash": "15996058838728861026"
+        },
+        {
+          "file": "user-ui/src/app/nx-welcome.tsx",
+          "hash": "2348102959109701629"
+        },
+        {
+          "file": "user-ui/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "user-ui/src/main.tsx",
+          "hash": "11332670511827407186",
+          "deps": [
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "user-ui/src/styles.css",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "user-ui/tsconfig.app.json",
+          "hash": "13403476513633183731"
+        },
+        {
+          "file": "user-ui/tsconfig.json",
+          "hash": "8372035408268418786"
+        },
+        {
+          "file": "user-ui/tsconfig.spec.json",
+          "hash": "11887952472848760817"
+        },
+        {
+          "file": "user-ui/vite.config.mts",
+          "hash": "1988178487541907756",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-react",
+            "npm:@nx/vite"
+          ]
+        }
+      ],
+      "admin-api": [
+        {
+          "file": "apps/admin-api/.gitignore",
+          "hash": "2836708013400663046"
+        },
+        {
+          "file": "apps/admin-api/Dockerfile",
+          "hash": "8965413624609824278"
+        },
+        {
+          "file": "apps/admin-api/README.md",
+          "hash": "2160737963162725240"
+        },
+        {
+          "file": "apps/admin-api/config/db.js",
+          "hash": "15165336918449042369",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/admin-api/controllers/adminControllers.js",
+          "hash": "6812521946614365795",
+          "deps": [
+            "npm:bcryptjs",
+            "npm:express-async-handler"
+          ]
+        },
+        {
+          "file": "apps/admin-api/controllers/bookingControllers.js",
+          "hash": "5210807717992103336",
+          "deps": [
+            "npm:express-async-handler",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/admin-api/controllers/healthControllers.js",
+          "hash": "10440082605584519439",
+          "deps": [
+            "npm:express-async-handler"
+          ]
+        },
+        {
+          "file": "apps/admin-api/metrics.js",
+          "hash": "9231487954439856456",
+          "deps": [
+            "npm:prom-client"
+          ]
+        },
+        {
+          "file": "apps/admin-api/middlewares/errorMiddleware.js",
+          "hash": "16315440422001865469"
+        },
+        {
+          "file": "apps/admin-api/models/adminModel.js",
+          "hash": "6001325487194457408",
+          "deps": [
+            "npm:mongoose",
+            "npm:bcryptjs"
+          ]
+        },
+        {
+          "file": "apps/admin-api/models/bookingModel.js",
+          "hash": "2865448956650242993",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/admin-api/project.json",
+          "hash": "14043833396558120662"
+        },
+        {
+          "file": "apps/admin-api/routes/admin.js",
+          "hash": "166470458818877536",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/admin-api/routes/booking.js",
+          "hash": "5121404324274600469",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/admin-api/routes/health.js",
+          "hash": "4245968771216302689",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/admin-api/routes/index.js",
+          "hash": "13836694712258543136",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/admin-api/server.js",
+          "hash": "16579784992539631075",
+          "deps": [
+            "npm:express",
+            "npm:cors",
+            "npm:dotenv",
+            "npm:prom-client"
+          ]
+        },
+        {
+          "file": "apps/admin-api/utils/generateToken.js",
+          "hash": "7098809906687407629",
+          "deps": [
+            "npm:jsonwebtoken"
+          ]
+        }
+      ],
+      "user-ui-e2e": [
+        {
+          "file": "user-ui-e2e/.eslintrc.json",
+          "hash": "3221422119017680556"
+        },
+        {
+          "file": "user-ui-e2e/playwright.config.ts",
+          "hash": "15158187479834513224",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "user-ui-e2e/project.json",
+          "hash": "2822927528138437394"
+        },
+        {
+          "file": "user-ui-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "user-ui-e2e/tsconfig.json",
+          "hash": "8714607179129573500"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "17866138117546000433"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "13377419431693519786"
+      },
+      {
+        "file": "Docs/1.authenticate-ecr.md",
+        "hash": "7515503383283320931"
+      },
+      {
+        "file": "Docs/2. Steps_to_create_eks_cluster.md",
+        "hash": "696479038818753724"
+      },
+      {
+        "file": "Docs/3. authenticate_eks_cluster.md",
+        "hash": "1774850920826253202"
+      },
+      {
+        "file": "README.md",
+        "hash": "7811582080255033728"
+      },
+      {
+        "file": "apps/admin-ui/.env",
+        "hash": "2426509005240106859"
+      },
+      {
+        "file": "apps/admin-ui/.gitignore",
+        "hash": "2303642404724327591"
+      },
+      {
+        "file": "apps/admin-ui/Dockerfile",
+        "hash": "17049695694395011217"
+      },
+      {
+        "file": "apps/admin-ui/README.md",
+        "hash": "866525514843625343"
+      },
+      {
+        "file": "apps/admin-ui/public/favicon.ico",
+        "hash": "2949791817221603359"
+      },
+      {
+        "file": "apps/admin-ui/public/index.html",
+        "hash": "16145649891257621550"
+      },
+      {
+        "file": "apps/admin-ui/public/logo192.png",
+        "hash": "7585273181698778288"
+      },
+      {
+        "file": "apps/admin-ui/public/logo512.png",
+        "hash": "9339365414554387981"
+      },
+      {
+        "file": "apps/admin-ui/public/manifest.json",
+        "hash": "1447645250373428393"
+      },
+      {
+        "file": "apps/admin-ui/public/robots.txt",
+        "hash": "2790380794362165217"
+      },
+      {
+        "file": "apps/admin-ui/src/App.js",
+        "hash": "9045492874263262444"
+      },
+      {
+        "file": "apps/admin-ui/src/admin/Admin.js",
+        "hash": "15916614443516164138"
+      },
+      {
+        "file": "apps/admin-ui/src/admin/Dashboard.js",
+        "hash": "14010903190203133826"
+      },
+      {
+        "file": "apps/admin-ui/src/components/ErrorMessage.js",
+        "hash": "5880593717293354261"
+      },
+      {
+        "file": "apps/admin-ui/src/components/Loading.js",
+        "hash": "16984740161356297022"
+      },
+      {
+        "file": "apps/admin-ui/src/config.js",
+        "hash": "13125089616744183919"
+      },
+      {
+        "file": "apps/admin-ui/src/env.js",
+        "hash": "16143223360919149985"
+      },
+      {
+        "file": "apps/admin-ui/src/index.js",
+        "hash": "10727002826173529353"
+      },
+      {
+        "file": "apps/admin-ui/src/layouts/MainScreen.js",
+        "hash": "11109077156767975927"
+      },
+      {
+        "file": "apps/admin-ui/src/reportWebVitals.js",
+        "hash": "8937667725995285050"
+      },
+      {
+        "file": "apps/admin-ui/src/services/auth.js",
+        "hash": "15233437517754566757"
+      },
+      {
+        "file": "apps/admin-ui/src/services/booking.js",
+        "hash": "1975718469482611571"
+      },
+      {
+        "file": "apps/admin-ui/src/services/index.js",
+        "hash": "17089524355551983969"
+      },
+      {
+        "file": "apps/admin-ui/src/svgs/index.js",
+        "hash": "8694474091142564964"
+      },
+      {
+        "file": "apps/user-ui/.env",
+        "hash": "11720515982724838296"
+      },
+      {
+        "file": "apps/user-ui/.gitignore",
+        "hash": "2303642404724327591"
+      },
+      {
+        "file": "apps/user-ui/Dockerfile",
+        "hash": "10350685906752413637"
+      },
+      {
+        "file": "apps/user-ui/README.md",
+        "hash": "289123422142232930"
+      },
+      {
+        "file": "apps/user-ui/public/favicon.ico",
+        "hash": "2949791817221603359"
+      },
+      {
+        "file": "apps/user-ui/public/index.html",
+        "hash": "1629659775607709959"
+      },
+      {
+        "file": "apps/user-ui/public/logo192.png",
+        "hash": "7585273181698778288"
+      },
+      {
+        "file": "apps/user-ui/public/logo512.png",
+        "hash": "9339365414554387981"
+      },
+      {
+        "file": "apps/user-ui/public/manifest.json",
+        "hash": "1447645250373428393"
+      },
+      {
+        "file": "apps/user-ui/public/robots.txt",
+        "hash": "2790380794362165217"
+      },
+      {
+        "file": "apps/user-ui/src/App.js",
+        "hash": "3744845231998528835"
+      },
+      {
+        "file": "apps/user-ui/src/bookings/CreateBooking.js",
+        "hash": "4037484584979883149"
+      },
+      {
+        "file": "apps/user-ui/src/components/ErrorMessage.js",
+        "hash": "5880593717293354261"
+      },
+      {
+        "file": "apps/user-ui/src/components/Loading.js",
+        "hash": "16984740161356297022"
+      },
+      {
+        "file": "apps/user-ui/src/config.js",
+        "hash": "15708242877461240101"
+      },
+      {
+        "file": "apps/user-ui/src/env.js",
+        "hash": "2527414533775778257"
+      },
+      {
+        "file": "apps/user-ui/src/index.js",
+        "hash": "4781621756480409548"
+      },
+      {
+        "file": "apps/user-ui/src/layouts/MainScreen.js",
+        "hash": "11109077156767975927"
+      },
+      {
+        "file": "apps/user-ui/src/reportWebVitals.js",
+        "hash": "8937667725995285050"
+      },
+      {
+        "file": "apps/user-ui/src/services/booking.js",
+        "hash": "8276955289794740134"
+      },
+      {
+        "file": "apps/user-ui/src/services/index.js",
+        "hash": "17880658244585221999"
+      },
+      {
+        "file": "apps/user-ui/src/svgs/index.js",
+        "hash": "8694474091142564964"
+      },
+      {
+        "file": "commands.md",
+        "hash": "8486240422077472059"
+      },
+      {
+        "file": "dist/admin-ui/assets/index-6Igj2m8V.js",
+        "hash": "113250115300435058"
+      },
+      {
+        "file": "dist/admin-ui/assets/index-x1XGuNl0.css",
+        "hash": "4055606894390288348"
+      },
+      {
+        "file": "dist/admin-ui/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": "dist/admin-ui/index.html",
+        "hash": "5409232550877789656"
+      },
+      {
+        "file": "docker-compose.yaml",
+        "hash": "9743342961103244989"
+      },
+      {
+        "file": "kubernetes/admin-api/deploy.yaml",
+        "hash": "14375746611775782459"
+      },
+      {
+        "file": "kubernetes/admin-api/secret.yaml",
+        "hash": "1553139040839080837"
+      },
+      {
+        "file": "kubernetes/admin-api/service.yaml",
+        "hash": "17046301326523212024"
+      },
+      {
+        "file": "kubernetes/admin-ui/configmap.yaml",
+        "hash": "5266127651273539736"
+      },
+      {
+        "file": "kubernetes/admin-ui/deploy.yaml",
+        "hash": "1166071370366052500"
+      },
+      {
+        "file": "kubernetes/admin-ui/service.yaml",
+        "hash": "4309449272518238061"
+      },
+      {
+        "file": "kubernetes/info",
+        "hash": "5659026609100397339"
+      },
+      {
+        "file": "kubernetes/mongo/secret.yaml",
+        "hash": "6887980066475735187"
+      },
+      {
+        "file": "kubernetes/mongo/service.yaml",
+        "hash": "27211363716798905"
+      },
+      {
+        "file": "kubernetes/mongo/statefulset.yaml",
+        "hash": "251370506856574131"
+      },
+      {
+        "file": "kubernetes/ns_rc.yaml",
+        "hash": "10446090224470395460"
+      },
+      {
+        "file": "kubernetes/readme.md",
+        "hash": "14186119635025958063"
+      },
+      {
+        "file": "kubernetes/user-api/deploy.yaml",
+        "hash": "10706281528024054267"
+      },
+      {
+        "file": "kubernetes/user-api/secret.yaml",
+        "hash": "8938485184473116752"
+      },
+      {
+        "file": "kubernetes/user-api/service.yaml",
+        "hash": "10500346973099288460"
+      },
+      {
+        "file": "kubernetes/user-ui/configmap.yaml",
+        "hash": "1012403160320406209"
+      },
+      {
+        "file": "kubernetes/user-ui/deploy.yaml",
+        "hash": "8261915842885508640"
+      },
+      {
+        "file": "kubernetes/user-ui/service.yaml",
+        "hash": "9628890454162629565"
+      },
+      {
+        "file": "nx.json",
+        "hash": "18279866090188693672"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "7529572533654883905"
+      },
+      {
+        "file": "package.json",
+        "hash": "8315642581954922907"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "5678772551961613681"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3385014866466956207"
+      },
+      {
+        "file": "vitest.workspace.ts",
+        "hash": "4665328684042819579"
+      }
+    ]
+  },
+  "externalNodesHash": "13369894005563613431"
+}

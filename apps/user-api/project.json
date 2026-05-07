@@ -1,0 +1,23 @@
+{
+  "name": "user-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/admin-api",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nodemon server.js",
+        "cwd": "apps/admin-api"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node server.js",
+        "cwd": "apps/admin-api"
+      }
+    }
+  },
+  "tags": []
+}
