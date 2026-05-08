@@ -2008,23 +2008,23 @@
       "apps/admin-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve": [
+    "targets.dev": [
       "apps/admin-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.executor": [
+    "targets.dev.executor": [
       "apps/admin-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.options": [
+    "targets.dev.options": [
       "apps/admin-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.options.command": [
+    "targets.dev.options.command": [
       "apps/admin-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.options.cwd": [
+    "targets.dev.options.cwd": [
       "apps/admin-api/project.json",
       "nx/core/project-json"
     ],
@@ -2078,23 +2078,23 @@
       "apps/user-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve": [
+    "targets.dev": [
       "apps/user-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.executor": [
+    "targets.dev.executor": [
       "apps/user-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.options": [
+    "targets.dev.options": [
       "apps/user-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.options.command": [
+    "targets.dev.options.command": [
       "apps/user-api/project.json",
       "nx/core/project-json"
     ],
-    "targets.serve.options.cwd": [
+    "targets.dev.options.cwd": [
       "apps/user-api/project.json",
       "nx/core/project-json"
     ],

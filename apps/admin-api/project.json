@@ -4,10 +4,10 @@
   "sourceRoot": "apps/admin-api",
   "projectType": "application",
   "targets": {
-    "serve": {
+    "dev": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nodemon server.js",
+        "command": "pnpm nodemon server.jsh",
         "cwd": "apps/admin-api"
       }
     },
