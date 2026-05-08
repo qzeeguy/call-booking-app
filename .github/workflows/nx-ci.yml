@@ -1,0 +1,109 @@
+name: Nx CI (Lint • Test • E2E • Package)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CALL_BOOKING_TOKEN: ${{ secrets.CALL_BOOKING_TOKEN }}
+  IMAGE_TAG: ${{ github.run_number }}-${{ github.sha }}
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.8.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Start Nx distributed CI
+        run: npx nx start-ci-run --distribute-on=".nx/workflows/distribution-config.yaml" --stop-agents-after="e2e-ci"
+
+      - name: Get pnpm store path
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright
+        run: pnpm exec playwright install --with-deps
+
+      - name: Set Nx SHAs
+        uses: nrwl/nx-set-shas@v5
+
+      - name: Lint + Test + Build
+        run: |
+          set -euxo pipefail
+          pnpm nx affected \
+            --target=lint \
+            --target=test \
+            --target=build \
+            --parallel=3
+
+      # START SERVICES
+      - name: Start services
+        run: |
+          npx concurrently -k -s first -n ADMIN_API,USER_API,ADMIN_UI,USER_UI \
+          "pnpm nx serve admin-api" \
+          "pnpm nx serve user-api" \
+          "pnpm nx serve admin-ui" \
+          "pnpm nx serve user-ui" &
+
+      - name: Wait for services
+        run: |
+          npx wait-on \
+            http://localhost:3000/health \
+            http://localhost:4000/health \
+            http://localhost:4200 \
+            http://localhost:4300
+
+      # E2E
+      - name: Run E2E tests
+        run: |
+          set -euxo pipefail
+          pnpm nx run-many \
+            --target=e2e \
+            --projects=admin-ui-e2e,user-ui-e2e \
+            --parallel=2
+
+      - name: Upload E2E report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+
+      # NX SELF-HEALING
+      - name: Nx self-healing
+        if: always()
+        run: pnpm nx fix-ci

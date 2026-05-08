@@ -1,0 +1,36 @@
+name: Build & Deploy (Manual)
+
+on:
+  workflow_dispatch:
+
+env:
+  IMAGE_TAG: ${{ github.run_number }}-${{ github.sha }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # ✅ Build images
+      - name: Build Docker images
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/admin-api:${IMAGE_TAG} ./apps/admin-api
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/user-api:${IMAGE_TAG} ./apps/user-api
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/admin-ui:${IMAGE_TAG} ./apps/admin-ui
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/user-ui:${IMAGE_TAG} ./apps/user-ui
+
+      # ✅ Push images
+      - name: Push images
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/admin-api:${IMAGE_TAG}
+          docker push ${{ secrets.DOCKER_USERNAME }}/user-api:${IMAGE_TAG}
+          docker push ${{ secrets.DOCKER_USERNAME }}/admin-ui:${IMAGE_TAG}
+          docker push ${{ secrets.DOCKER_USERNAME }}/user-ui:${IMAGE_TAG}

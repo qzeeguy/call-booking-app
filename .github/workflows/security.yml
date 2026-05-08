@@ -1,0 +1,43 @@
+name: Security CI (SCA • SAST • OWASP)
+
+on:
+  workflow_run:
+    workflows: ["Nx CI (Lint • Test • E2E • Package)"]
+    types:
+      - completed
+
+jobs:
+  security:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: pnpm install
+
+      # ✅ SCA (dependency scan)
+      - name: Run SCA (npm audit)
+        run: pnpm audit --audit-level=high || true
+
+      # ✅ SAST (code scanning)
+      - name: Run CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+
+      - uses: github/codeql-action/analyze@v3
+
+      # ✅ OWASP Dependency Check
+      - name: OWASP Dependency Check
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: "call-booking-app"
+          path: "."
+          format: "HTML"
