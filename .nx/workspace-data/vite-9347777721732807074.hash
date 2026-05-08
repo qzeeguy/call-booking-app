@@ -1,5 +1,5 @@
 {
-  "9287207041938240887admin-ui/vite.config.mts": {
+  "17922579717800243583admin-ui/vite.config.mts": {
     "targets": {
       "test": {
         "command": "vitest",
@@ -200,7 +200,7 @@
     "metadata": {},
     "projectType": "application"
   },
-  "7484698291249950942user-ui/vite.config.mts": {
+  "15726270771401215981user-ui/vite.config.mts": {
     "targets": {
       "test": {
         "command": "vitest",

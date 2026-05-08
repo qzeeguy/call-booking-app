@@ -35,6 +35,9 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Start Nx distributed CI
         run: npx nx start-ci-run --distribute-on=".nx/workflows/distribution-config.yaml" --stop-agents-after="e2e-ci"
 
@@ -49,9 +52,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
 
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps

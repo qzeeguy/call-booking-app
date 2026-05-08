@@ -1,5 +1,5 @@
 {
-  "8299586936177524483admin-ui/vite.config.mts": {
+  "17544253152256136683admin-ui/vite.config.mts": {
     "targets": {
       "test": {
         "command": "vitest",
@@ -134,7 +134,7 @@
     },
     "projectType": "library"
   },
-  "677729074395873104user-ui/vite.config.mts": {
+  "13582707811967961724user-ui/vite.config.mts": {
     "targets": {
       "test": {
         "command": "vitest",
