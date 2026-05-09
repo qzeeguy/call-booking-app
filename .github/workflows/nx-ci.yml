@@ -62,13 +62,12 @@ jobs:
       - name: Lint + Test + Build
         run: |
           pnpm nx affected \
-          --target=lint \
-          --target=test \
-          --target=build \
-          --parallel=3 \
-          --continue-on-error
+            --target=lint \
+            --target=test \
+            --target=build \
+            --parallel=3 \
+            --continue-on-error
         continue-on-error: true
-           
 
       # START SERVICES
       - name: Start services
@@ -102,13 +101,12 @@ jobs:
         with:
           name: playwright-report
           path: |
-            
             dist/.playwright/**/playwright-report
             dist/.playwright/**/test-results
-            if-no-files-found: ignore
-
+          if-no-files-found: ignore
 
       # NX SELF-HEALING
       - name: Nx self-healing
         if: always()
         run: pnpm nx fix-ci
+``
