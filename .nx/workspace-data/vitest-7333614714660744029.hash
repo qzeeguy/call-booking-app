@@ -1,5 +1,5 @@
 {
-  "17544253152256136683admin-ui/vite.config.mts": {
+  "3704721284290130271admin-ui/vite.config.mts": {
     "targets": {
       "test": {
         "command": "vitest",
@@ -134,12 +134,12 @@
     },
     "projectType": "library"
   },
-  "13582707811967961724user-ui/vite.config.mts": {
+  "8738956478082200755dist/user-ui/vite.config.ts": {
     "targets": {
       "test": {
         "command": "vitest",
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "cache": true,
         "inputs": [
@@ -159,7 +159,7 @@
           }
         ],
         "outputs": [
-          "{workspaceRoot}/coverage/user-ui"
+          "{workspaceRoot}/dist/coverage/user-ui"
         ],
         "metadata": {
           "technologies": [
@@ -197,10 +197,10 @@
           }
         ],
         "outputs": [
-          "{workspaceRoot}/coverage/user-ui"
+          "{workspaceRoot}/dist/coverage/user-ui"
         ],
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "metadata": {
           "technologies": [
@@ -237,7 +237,7 @@
           }
         ],
         "outputs": [
-          "{workspaceRoot}/coverage/user-ui"
+          "{workspaceRoot}/dist/coverage/user-ui"
         ],
         "dependsOn": [
           "test-ci--src/app/app.spec.tsx"

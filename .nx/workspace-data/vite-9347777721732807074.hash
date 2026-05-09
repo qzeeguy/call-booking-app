@@ -1,5 +1,5 @@
 {
-  "17922579717800243583admin-ui/vite.config.mts": {
+  "5169417400937331250admin-ui/vite.config.mts": {
     "targets": {
       "test": {
         "command": "vitest",
@@ -200,12 +200,12 @@
     "metadata": {},
     "projectType": "application"
   },
-  "15726270771401215981user-ui/vite.config.mts": {
+  "11704718111948299669dist/user-ui/vite.config.ts": {
     "targets": {
       "test": {
         "command": "vitest",
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "cache": true,
         "inputs": [
@@ -225,7 +225,7 @@
           }
         ],
         "outputs": [
-          "{workspaceRoot}/coverage/user-ui"
+          "{workspaceRoot}/dist/coverage/user-ui"
         ],
         "metadata": {
           "technologies": [
@@ -246,7 +246,7 @@
       "build": {
         "command": "vite build",
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "cache": true,
         "dependsOn": [
@@ -262,7 +262,7 @@
           }
         ],
         "outputs": [
-          "{workspaceRoot}/dist/user-ui"
+          "{workspaceRoot}/dist/dist/user-ui"
         ],
         "metadata": {
           "technologies": [
@@ -284,7 +284,7 @@
         "continuous": true,
         "command": "vite",
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "metadata": {
           "technologies": [
@@ -306,7 +306,7 @@
         "continuous": true,
         "command": "vite",
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "metadata": {
           "technologies": [
@@ -330,7 +330,7 @@
           "build"
         ],
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "metadata": {
           "technologies": [
@@ -368,7 +368,7 @@
         ],
         "command": "tsc --noEmit -p tsconfig.app.json",
         "options": {
-          "cwd": "user-ui"
+          "cwd": "dist/user-ui"
         },
         "metadata": {
           "description": "Runs type-checking for the project.",

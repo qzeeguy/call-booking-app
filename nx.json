@@ -4,6 +4,22 @@
   "name": "call-booking-app",
   "version": "0.0.0",
   "private": true,
+  
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    }
+  },
   "dependencies": {
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",

@@ -1,0 +1,31 @@
+{
+  "name": "user-ui",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "user-ui/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/user-ui"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "user-ui:build",
+        "port": 4300,
+        "host": "localhost"
+      }
+    },
+    "start": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "user-ui:build",
+        "port": 4300,
+        "host": "localhost"
+      }
+    }
+  }
+}

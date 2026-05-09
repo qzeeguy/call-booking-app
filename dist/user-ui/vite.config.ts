@@ -1,0 +1,44 @@
+/// <reference types='vitest' />
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
+
+export default defineConfig(() => ({
+  root: import.meta.dirname,
+  cacheDir: '../node_modules/.vite/user-ui',
+
+  server: {
+    port: 4300,
+    host: 'localhost',
+    strictPort: true
+  },
+
+  plugins: [
+    react(),
+    nxViteTsPaths(),
+    nxCopyAssetsPlugin(['*.md'])
+  ],
+
+  build: {
+    outDir: '../dist/user-ui',
+    emptyOutDir: true,
+    reportCompressedSize: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+
+  test: {
+    name: 'user-ui',
+    watch: false,
+    globals: true,
+    environment: 'jsdom',
+    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../coverage/user-ui',
+      provider: 'v8' as const,
+    },
+  },
+}));

@@ -3835,6 +3835,51 @@
     "type": "static"
   },
   {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:ajv@6.15.0",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:debug@4.4.3",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:espree@9.6.1",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:globals@13.24.0",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:ignore@5.3.2",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:import-fresh",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:js-yaml@4.1.1",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:minimatch@3.1.5",
+    "type": "static"
+  },
+  {
+    "source": "npm:@eslint/eslintrc@2.1.4",
+    "target": "npm:strip-json-comments",
+    "type": "static"
+  },
+  {
     "source": "npm:@eslint/eslintrc",
     "target": "npm:ajv@6.15.0",
     "type": "static"
@@ -3846,12 +3891,12 @@
   },
   {
     "source": "npm:@eslint/eslintrc",
-    "target": "npm:espree",
+    "target": "npm:espree@10.4.0",
     "type": "static"
   },
   {
     "source": "npm:@eslint/eslintrc",
-    "target": "npm:globals@13.24.0",
+    "target": "npm:globals@14.0.0",
     "type": "static"
   },
   {
@@ -11276,7 +11321,7 @@
   },
   {
     "source": "npm:brace-expansion@5.0.2",
-    "target": "npm:balanced-match@4.0.3",
+    "target": "npm:balanced-match@4.0.4",
     "type": "static"
   },
   {
@@ -13716,7 +13761,7 @@
   },
   {
     "source": "npm:eslint",
-    "target": "npm:@eslint/eslintrc",
+    "target": "npm:@eslint/eslintrc@2.1.4",
     "type": "static"
   },
   {
@@ -13786,7 +13831,7 @@
   },
   {
     "source": "npm:eslint",
-    "target": "npm:espree",
+    "target": "npm:espree@9.6.1",
     "type": "static"
   },
   {
@@ -13895,17 +13940,32 @@
     "type": "static"
   },
   {
-    "source": "npm:espree",
+    "source": "npm:espree@10.4.0",
     "target": "npm:acorn@8.16.0",
     "type": "static"
   },
   {
-    "source": "npm:espree",
+    "source": "npm:espree@10.4.0",
     "target": "npm:acorn-jsx",
     "type": "static"
   },
   {
-    "source": "npm:espree",
+    "source": "npm:espree@10.4.0",
+    "target": "npm:eslint-visitor-keys@4.2.1",
+    "type": "static"
+  },
+  {
+    "source": "npm:espree@9.6.1",
+    "target": "npm:acorn@8.16.0",
+    "type": "static"
+  },
+  {
+    "source": "npm:espree@9.6.1",
+    "target": "npm:acorn-jsx",
+    "type": "static"
+  },
+  {
+    "source": "npm:espree@9.6.1",
     "target": "npm:eslint-visitor-keys@3.4.3",
     "type": "static"
   },
@@ -18601,7 +18661,7 @@
   },
   {
     "source": "npm:jsonc-eslint-parser",
-    "target": "npm:espree",
+    "target": "npm:espree@9.6.1",
     "type": "static"
   },
   {

@@ -18,7 +18,12 @@ const register = new client.Registry();
 register.registerMetric(httpRequestTimer);
 register.registerMetric(counter);
 
-connectDB();
+//connectDB();
+if (process.env.MONGO_URI) {
+  connectDB();
+} else {
+  console.log('⚠️ MongoDB not connected (no MONGO_URI)');
+}
 
 app.use(express.json());
 
@@ -32,5 +37,5 @@ app.get('/metrics', async (req, res) => {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 1004
+const PORT = process.env.PORT || 4000
 app.listen(PORT, console.log(`Server started on PORT ${PORT}`));

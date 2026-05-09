@@ -144,7 +144,7 @@
         },
         {
           "file": "apps/admin-api/server.js",
-          "hash": "16579784992539631075",
+          "hash": "11333573872245635935",
           "deps": [
             "npm:express",
             "npm:cors",
@@ -160,48 +160,56 @@
           ]
         }
       ],
-      "admin-ui": [
+      "user-ui": [
         {
-          "file": "admin-ui/.eslintrc.json",
+          "file": "dist/user-ui/.eslintrc.json",
           "hash": "4545653524409855784"
         },
         {
-          "file": "admin-ui/index.html",
-          "hash": "4433331561883772515"
-        },
-        {
-          "file": "admin-ui/project.json",
-          "hash": "669575943184422044"
-        },
-        {
-          "file": "admin-ui/public/favicon.ico",
+          "file": "dist/user-ui/dist/favicon.ico",
           "hash": "9303420814833116677"
         },
         {
-          "file": "admin-ui/src/app/app.module.css",
+          "file": "dist/user-ui/dist/index.html",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "dist/user-ui/index.html",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "dist/user-ui/project.json",
+          "hash": "13864539417605743996"
+        },
+        {
+          "file": "dist/user-ui/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "dist/user-ui/src/app/app.module.css",
           "hash": "8887387885984320532"
         },
         {
-          "file": "admin-ui/src/app/app.spec.tsx",
-          "hash": "16306883901810338700",
+          "file": "dist/user-ui/src/app/app.spec.tsx",
+          "hash": "12343356419704232828",
           "deps": [
             "npm:@testing-library/react"
           ]
         },
         {
-          "file": "admin-ui/src/app/app.tsx",
-          "hash": "841840806913309070"
+          "file": "dist/user-ui/src/app/app.tsx",
+          "hash": "15996058838728861026"
         },
         {
-          "file": "admin-ui/src/app/nx-welcome.tsx",
+          "file": "dist/user-ui/src/app/nx-welcome.tsx",
           "hash": "2348102959109701629"
         },
         {
-          "file": "admin-ui/src/assets/.gitkeep",
+          "file": "dist/user-ui/src/assets/.gitkeep",
           "hash": "3244421341483603138"
         },
         {
-          "file": "admin-ui/src/main.tsx",
+          "file": "dist/user-ui/src/main.tsx",
           "hash": "11332670511827407186",
           "deps": [
             "npm:react",
@@ -209,24 +217,24 @@
           ]
         },
         {
-          "file": "admin-ui/src/styles.css",
+          "file": "dist/user-ui/src/styles.css",
           "hash": "5195668842064076916"
         },
         {
-          "file": "admin-ui/tsconfig.app.json",
+          "file": "dist/user-ui/tsconfig.app.json",
           "hash": "13403476513633183731"
         },
         {
-          "file": "admin-ui/tsconfig.json",
+          "file": "dist/user-ui/tsconfig.json",
           "hash": "8372035408268418786"
         },
         {
-          "file": "admin-ui/tsconfig.spec.json",
-          "hash": "11887952472848760817"
+          "file": "dist/user-ui/tsconfig.spec.json",
+          "hash": "3244421341483603138"
         },
         {
-          "file": "admin-ui/vite.config.mts",
-          "hash": "9889092763802682465",
+          "file": "dist/user-ui/vite.config.ts",
+          "hash": "10254979892267725144",
           "deps": [
             "npm:vite",
             "npm:@vitejs/plugin-react",
@@ -234,14 +242,17 @@
           ]
         }
       ],
-      "user-ui-e2e": [
+      "admin-ui-e2e": [
         {
-          "file": "user-ui-e2e/.eslintrc.json",
-          "hash": "3221422119017680556"
+          "file": "admin-ui-e2e/eslint.config.cjs",
+          "hash": "3293342307402844312",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
         },
         {
-          "file": "user-ui-e2e/playwright.config.ts",
-          "hash": "15158187479834513224",
+          "file": "admin-ui-e2e/playwright.config.ts",
+          "hash": "12573936044707968037",
           "deps": [
             "npm:@playwright/test",
             "npm:@nx/playwright",
@@ -249,18 +260,18 @@
           ]
         },
         {
-          "file": "user-ui-e2e/project.json",
-          "hash": "2822927528138437394"
+          "file": "admin-ui-e2e/project.json",
+          "hash": "17954160211330953318"
         },
         {
-          "file": "user-ui-e2e/src/example.spec.ts",
+          "file": "admin-ui-e2e/src/example.spec.ts",
           "hash": "16019101014373124625",
           "deps": [
             "npm:@playwright/test"
           ]
         },
         {
-          "file": "user-ui-e2e/tsconfig.json",
+          "file": "admin-ui-e2e/tsconfig.json",
           "hash": "8714607179129573500"
         }
       ],
@@ -322,7 +333,7 @@
         },
         {
           "file": "apps/user-api/project.json",
-          "hash": "11759083166877587290"
+          "hash": "5454263367316427694"
         },
         {
           "file": "apps/user-api/routes/booking.js",
@@ -347,7 +358,7 @@
         },
         {
           "file": "apps/user-api/server.js",
-          "hash": "2073116911335554216",
+          "hash": "3250721809905174764",
           "deps": [
             "npm:dotenv",
             "npm:express",
@@ -371,17 +382,14 @@
           ]
         }
       ],
-      "admin-ui-e2e": [
+      "user-ui-e2e": [
         {
-          "file": "admin-ui-e2e/eslint.config.cjs",
-          "hash": "7639167129244439463",
-          "deps": [
-            "npm:eslint-plugin-playwright"
-          ]
+          "file": "user-ui-e2e/.eslintrc.json",
+          "hash": "3221422119017680556"
         },
         {
-          "file": "admin-ui-e2e/playwright.config.ts",
-          "hash": "12573936044707968037",
+          "file": "user-ui-e2e/playwright.config.ts",
+          "hash": "424491174170063525",
           "deps": [
             "npm:@playwright/test",
             "npm:@nx/playwright",
@@ -389,63 +397,63 @@
           ]
         },
         {
-          "file": "admin-ui-e2e/project.json",
-          "hash": "17954160211330953318"
+          "file": "user-ui-e2e/project.json",
+          "hash": "11867193855819826197"
         },
         {
-          "file": "admin-ui-e2e/src/example.spec.ts",
-          "hash": "16019101014373124625",
+          "file": "user-ui-e2e/src/example.spec.ts",
+          "hash": "4573796506204707279",
           "deps": [
             "npm:@playwright/test"
           ]
         },
         {
-          "file": "admin-ui-e2e/tsconfig.json",
+          "file": "user-ui-e2e/tsconfig.json",
           "hash": "8714607179129573500"
         }
       ],
-      "user-ui": [
+      "admin-ui": [
         {
-          "file": "user-ui/.eslintrc.json",
+          "file": "admin-ui/.eslintrc.json",
           "hash": "4545653524409855784"
         },
         {
-          "file": "user-ui/index.html",
-          "hash": "8939672580296849442"
+          "file": "admin-ui/index.html",
+          "hash": "4433331561883772515"
         },
         {
-          "file": "user-ui/project.json",
-          "hash": "13804970303635649347"
+          "file": "admin-ui/project.json",
+          "hash": "4210171778099121678"
         },
         {
-          "file": "user-ui/public/favicon.ico",
+          "file": "admin-ui/public/favicon.ico",
           "hash": "9303420814833116677"
         },
         {
-          "file": "user-ui/src/app/app.module.css",
+          "file": "admin-ui/src/app/app.module.css",
           "hash": "8887387885984320532"
         },
         {
-          "file": "user-ui/src/app/app.spec.tsx",
-          "hash": "12343356419704232828",
+          "file": "admin-ui/src/app/app.spec.tsx",
+          "hash": "16306883901810338700",
           "deps": [
             "npm:@testing-library/react"
           ]
         },
         {
-          "file": "user-ui/src/app/app.tsx",
-          "hash": "15996058838728861026"
+          "file": "admin-ui/src/app/app.tsx",
+          "hash": "841840806913309070"
         },
         {
-          "file": "user-ui/src/app/nx-welcome.tsx",
+          "file": "admin-ui/src/app/nx-welcome.tsx",
           "hash": "2348102959109701629"
         },
         {
-          "file": "user-ui/src/assets/.gitkeep",
+          "file": "admin-ui/src/assets/.gitkeep",
           "hash": "3244421341483603138"
         },
         {
-          "file": "user-ui/src/main.tsx",
+          "file": "admin-ui/src/main.tsx",
           "hash": "11332670511827407186",
           "deps": [
             "npm:react",
@@ -453,24 +461,24 @@
           ]
         },
         {
-          "file": "user-ui/src/styles.css",
+          "file": "admin-ui/src/styles.css",
           "hash": "5195668842064076916"
         },
         {
-          "file": "user-ui/tsconfig.app.json",
+          "file": "admin-ui/tsconfig.app.json",
           "hash": "13403476513633183731"
         },
         {
-          "file": "user-ui/tsconfig.json",
+          "file": "admin-ui/tsconfig.json",
           "hash": "8372035408268418786"
         },
         {
-          "file": "user-ui/tsconfig.spec.json",
+          "file": "admin-ui/tsconfig.spec.json",
           "hash": "11887952472848760817"
         },
         {
-          "file": "user-ui/vite.config.mts",
-          "hash": "1988178487541907756",
+          "file": "admin-ui/vite.config.mts",
+          "hash": "9889092763802682465",
           "deps": [
             "npm:vite",
             "npm:@vitejs/plugin-react",
@@ -506,7 +514,7 @@
       },
       {
         "file": ".nx/workflows/distribution-config.yaml",
-        "hash": "8476617820411298796"
+        "hash": "432775065939307332"
       },
       {
         "file": ".prettierignore",
@@ -725,6 +733,30 @@
         "hash": "8486240422077472059"
       },
       {
+        "file": "dist/.playwright/admin-ui-e2e/playwright-report/index.html",
+        "hash": "16959849952324532368"
+      },
+      {
+        "file": "dist/.playwright/admin-ui-e2e/test-output/.last-run.json",
+        "hash": "11141884120100644736"
+      },
+      {
+        "file": "dist/.playwright/user-ui-e2e/playwright-report/data/e7537464fcb2a07c1459fe6dceb5333a7c95721e.md",
+        "hash": "4171949041496281756"
+      },
+      {
+        "file": "dist/.playwright/user-ui-e2e/playwright-report/index.html",
+        "hash": "12678264779626932523"
+      },
+      {
+        "file": "dist/.playwright/user-ui-e2e/test-output/.last-run.json",
+        "hash": "8432830070022913212"
+      },
+      {
+        "file": "dist/.playwright/user-ui-e2e/test-output/example-app-loads-successfully-firefox/error-context.md",
+        "hash": "4171949041496281756"
+      },
+      {
         "file": "dist/admin-ui/assets/index-6Igj2m8V.js",
         "hash": "113250115300435058"
       },
@@ -818,7 +850,7 @@
       },
       {
         "file": "nx.json",
-        "hash": "3288527580963279631"
+        "hash": "15454771004752320018"
       },
       {
         "file": "package-lock.json",
@@ -826,11 +858,11 @@
       },
       {
         "file": "package.json",
-        "hash": "560204587640509279"
+        "hash": "4318041017070248258"
       },
       {
         "file": "pnpm-lock.yaml",
-        "hash": "828171426713585571"
+        "hash": "11210625579623543778"
       },
       {
         "file": "tsconfig.base.json",
@@ -842,5 +874,5 @@
       }
     ]
   },
-  "externalNodesHash": "5587967557109239795"
+  "externalNodesHash": "10680634655977845411"
 }

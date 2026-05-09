@@ -13,8 +13,8 @@
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "admin-ui/.eslintrc.json",
-      "@nx/eslint/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.lint.options": [
       "admin-ui/.eslintrc.json",
@@ -81,8 +81,8 @@
       "@nx/vitest"
     ],
     "targets.test.cache": [
-      "admin-ui/vite.config.mts",
-      "@nx/vitest"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.test.inputs": [
       "admin-ui/vite.config.mts",
@@ -141,12 +141,12 @@
       "@nx/vite/plugin"
     ],
     "targets.build.cache": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.build.dependsOn": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.build.inputs": [
       "admin-ui/vite.config.mts",
@@ -193,62 +193,6 @@
       "@nx/vite/plugin"
     ],
     "targets.build.metadata.help.example": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.continuous": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.options": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.executor": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.options.cwd": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.options.command": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.technologies": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.technologies.0": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.description": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.help": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.help.command": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.help.example": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.deprecated": [
       "admin-ui/vite.config.mts",
       "@nx/vite/plugin"
     ],
@@ -357,30 +301,6 @@
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.help.example": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.continuous": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.executor": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.options": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.options.buildTarget": [
-      "admin-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.options.spa": [
       "admin-ui/vite.config.mts",
       "@nx/vite/plugin"
     ],
@@ -620,13 +540,57 @@
       "admin-ui/project.json",
       "nx/core/project-json"
     ],
-    "// targets": [
+    "targets.serve": [
       "admin-ui/project.json",
       "nx/core/project-json"
     ],
-    "tags": [
+    "targets.serve.executor": [
       "admin-ui/project.json",
       "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.port": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.host": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.executor": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.port": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.host": [
+      "admin-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
     ]
   },
   "admin-ui-e2e": {
@@ -643,8 +607,8 @@
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "admin-ui-e2e/eslint.config.cjs",
-      "@nx/eslint/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.lint.options": [
       "admin-ui-e2e/eslint.config.cjs",
@@ -739,8 +703,8 @@
       "@nx/playwright/plugin"
     ],
     "targets.e2e.cache": [
-      "admin-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.e2e.inputs": [
       "admin-ui-e2e/playwright.config.ts",
@@ -989,636 +953,572 @@
     "implicitDependencies.admin-ui": [
       "admin-ui-e2e/project.json",
       "nx/core/project-json"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.e2e.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
     ]
   },
-  "user-ui": {
+  "dist/user-ui": {
     "root": [
-      "user-ui/project.json",
+      "dist/user-ui/project.json",
       "nx/core/project-json"
     ],
     "targets": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "user-ui/.eslintrc.json",
-      "@nx/eslint/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.lint.options": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.inputs": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.outputs": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.executor": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.cwd": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.options.command": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.technologies.0": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.description": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.command": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "targets.lint.metadata.help.example": [
-      "user-ui/.eslintrc.json",
+      "dist/user-ui/.eslintrc.json",
       "@nx/eslint/plugin"
     ],
     "projectType": [
-      "user-ui/project.json",
+      "dist/user-ui/project.json",
       "nx/core/project-json"
     ],
     "targets.test": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.options": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.cache": [
-      "user-ui/vite.config.mts",
-      "@nx/vitest"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.test.inputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.outputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.metadata": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.options.cwd": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.options.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.metadata.technologies": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.test.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.test.metadata.description": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.metadata.help": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.metadata.help.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.test.metadata.help.example": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.options": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.cache": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.dependsOn": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.inputs": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.outputs": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.executor": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.options.cwd": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.options.command": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata.technologies": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata.description": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata.help": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata.help.command": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build.metadata.help.example": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.continuous": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.options": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.executor": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.options.cwd": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.options.command": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.technologies": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.description": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.help": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.help.command": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.help.example": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve.metadata.deprecated": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.continuous": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.options": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.options.cwd": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.options.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata.technologies": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata.description": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata.help": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata.help.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.dev.metadata.help.example": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.continuous": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.dependsOn": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.options": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.options.cwd": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.options.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.technologies": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.description": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.help": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.help.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.preview.metadata.help.example": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.continuous": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.executor": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.options": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.options.buildTarget": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.serve-static.options.spa": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.cache": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.inputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.options": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.options.cwd": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.options.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata.description": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata.technologies": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata.help": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata.help.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.typecheck.metadata.help.example": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build-deps": [
-      "user-ui/vite.config.mts",
-      "@nx/vite/plugin"
-    ],
-    "targets.build-deps.dependsOn": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.watch-deps": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.watch-deps.continuous": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.watch-deps.dependsOn": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.watch-deps.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.watch-deps.options": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "targets.watch-deps.options.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vite/plugin"
     ],
     "metadata.targetGroups": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "metadata.targetGroups.TEST (CI)": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "metadata.targetGroups.TEST (CI).0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "metadata.targetGroups.TEST (CI).1": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test.metadata.technologies.1": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.cache": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.inputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.outputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.options": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.options.cwd": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.options.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata.technologies": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata.description": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata.help": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata.help.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci--src/app/app.spec.tsx.metadata.help.example": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.executor": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.cache": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.inputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.outputs": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.dependsOn": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.technologies": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.technologies.0": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.description": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.nonAtomizedTarget": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.help": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.help.command": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "targets.test-ci.metadata.help.example": [
-      "user-ui/vite.config.mts",
+      "dist/user-ui/vite.config.ts",
       "@nx/vitest"
     ],
     "name": [
-      "user-ui/project.json",
+      "dist/user-ui/project.json",
       "nx/core/project-json"
     ],
     "$schema": [
-      "user-ui/project.json",
+      "dist/user-ui/project.json",
       "nx/core/project-json"
     ],
     "sourceRoot": [
-      "user-ui/project.json",
+      "dist/user-ui/project.json",
       "nx/core/project-json"
     ],
-    "// targets": [
-      "user-ui/project.json",
+    "targets.build": [
+      "dist/user-ui/project.json",
       "nx/core/project-json"
     ],
-    "tags": [
-      "user-ui/project.json",
+    "targets.build.executor": [
+      "dist/user-ui/project.json",
       "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.port": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.host": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.executor": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.buildTarget": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.port": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.host": [
+      "dist/user-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
     ]
   },
   "user-ui-e2e": {
@@ -1635,8 +1535,8 @@
       "@nx/eslint/plugin"
     ],
     "targets.lint.cache": [
-      "user-ui-e2e/.eslintrc.json",
-      "@nx/eslint/plugin"
+      "nx.json",
+      "nx/target-defaults"
     ],
     "targets.lint.options": [
       "user-ui-e2e/.eslintrc.json",
@@ -1710,242 +1610,6 @@
       "user-ui-e2e/playwright.config.ts",
       "@nx/playwright/plugin"
     ],
-    "targets.e2e": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.options": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.dependsOn": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.cache": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.inputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.outputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.executor": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.options.cwd": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.options.command": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.technologies": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.technologies.0": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.description": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.help": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.help.command": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e.metadata.help.example": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.dependsOn": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.cache": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.inputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.outputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.executor": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options.cwd": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options.env": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.options.command": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.technologies": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.technologies.0": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.description": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.help": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.help.command": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--src/example.spec.ts.metadata.help.example": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.executor": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.cache": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.inputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.outputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.dependsOn": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.technologies": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.technologies.0": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.description": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.nonAtomizedTarget": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.help": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.help.command": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci.metadata.help.example": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.executor": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.cache": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.inputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.outputs": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.options": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.metadata": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.options.config": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.options.expectedSuites": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.metadata.technologies": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.metadata.technologies.0": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
-    "targets.e2e-ci--merge-reports.metadata.description": [
-      "user-ui-e2e/playwright.config.ts",
-      "@nx/playwright/plugin"
-    ],
     "name": [
       "user-ui-e2e/project.json",
       "nx/core/project-json"
@@ -1962,14 +1626,6 @@
       "user-ui-e2e/project.json",
       "nx/core/project-json"
     ],
-    "// targets": [
-      "user-ui-e2e/project.json",
-      "nx/core/project-json"
-    ],
-    "tags": [
-      "user-ui-e2e/project.json",
-      "nx/core/project-json"
-    ],
     "implicitDependencies": [
       "user-ui-e2e/project.json",
       "nx/core/project-json"
@@ -1977,6 +1633,34 @@
     "implicitDependencies.user-ui": [
       "user-ui-e2e/project.json",
       "nx/core/project-json"
+    ],
+    "targets.e2e": [
+      "user-ui-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.executor": [
+      "user-ui-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.options": [
+      "user-ui-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.options.config": [
+      "user-ui-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.e2e.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.e2e.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
     ]
   },
   "apps/admin-api": {

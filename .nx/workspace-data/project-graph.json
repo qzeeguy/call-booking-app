@@ -48,7 +48,7 @@
             "executor": "nx:run-commands",
             "options": {
               "command": "pnpm nodemon server.js",
-              "cwd": "apps/admin-api"
+              "cwd": "apps/user-api"
             },
             "configurations": {},
             "parallelism": true
@@ -57,7 +57,7 @@
             "executor": "nx:run-commands",
             "options": {
               "command": "node server.js",
-              "cwd": "apps/admin-api"
+              "cwd": "apps/user-api"
             },
             "configurations": {},
             "parallelism": true
@@ -299,6 +299,352 @@
         ]
       }
     },
+    "user-ui": {
+      "name": "user-ui",
+      "type": "app",
+      "data": {
+        "root": "dist/user-ui",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "dist/user-ui",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/dist/user-ui/.eslintrc.json",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              {
+                "externalDependencies": [
+                  "vitest"
+                ]
+              },
+              {
+                "env": "CI"
+              },
+              {
+                "dependentTasksOutputFiles": "**/*.js",
+                "transitive": true
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist/coverage/user-ui"
+            ],
+            "metadata": {
+              "technologies": [
+                "vite",
+                "vitest"
+              ],
+              "description": "Run Vitest tests",
+              "help": {
+                "command": "pnpm exec vitest --help",
+                "example": {
+                  "options": {
+                    "bail": 1,
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "dist/user-ui",
+              "command": "vitest"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "executor": "@nx/vite:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/user-ui"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "cache": true
+          },
+          "serve": {
+            "executor": "@nx/vite:dev-server",
+            "options": {
+              "buildTarget": "user-ui:build",
+              "port": 4300,
+              "host": "localhost"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "continuous": true
+          },
+          "dev": {
+            "continuous": true,
+            "options": {
+              "cwd": "dist/user-ui",
+              "command": "vite"
+            },
+            "metadata": {
+              "technologies": [
+                "vite"
+              ],
+              "description": "Starts Vite dev server",
+              "help": {
+                "command": "pnpm exec vite --help",
+                "example": {
+                  "options": {
+                    "port": 3000
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "preview": {
+            "continuous": true,
+            "dependsOn": [
+              "build"
+            ],
+            "options": {
+              "cwd": "dist/user-ui",
+              "command": "vite preview"
+            },
+            "metadata": {
+              "technologies": [
+                "vite"
+              ],
+              "description": "Locally preview Vite production build",
+              "help": {
+                "command": "pnpm exec vite preview --help",
+                "example": {
+                  "options": {
+                    "port": 3000
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "executor": "@nx/web:file-server",
+            "options": {
+              "buildTarget": "build",
+              "spa": true
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "typecheck": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              {
+                "externalDependencies": [
+                  "typescript"
+                ]
+              }
+            ],
+            "options": {
+              "cwd": "dist/user-ui",
+              "command": "tsc --noEmit -p tsconfig.app.json"
+            },
+            "metadata": {
+              "description": "Runs type-checking for the project.",
+              "technologies": [
+                "typescript"
+              ],
+              "help": {
+                "command": "pnpm exec tsc -p tsconfig.app.json --help",
+                "example": {
+                  "options": {
+                    "noEmit": true
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm exec nx watch --projects user-ui --includeDependentProjects -- pnpm exec nx build-deps user-ui"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test-ci--src/app/app.spec.tsx": {
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              {
+                "externalDependencies": [
+                  "vitest"
+                ]
+              },
+              {
+                "env": "CI"
+              },
+              {
+                "dependentTasksOutputFiles": "**/*.js",
+                "transitive": true
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist/coverage/user-ui"
+            ],
+            "options": {
+              "cwd": "dist/user-ui",
+              "command": "vitest run src/app/app.spec.tsx"
+            },
+            "metadata": {
+              "technologies": [
+                "vitest"
+              ],
+              "description": "Run Vitest Tests in src/app/app.spec.tsx",
+              "help": {
+                "command": "pnpm exec vitest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test-ci": {
+            "executor": "nx:noop",
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              {
+                "externalDependencies": [
+                  "vitest"
+                ]
+              },
+              {
+                "env": "CI"
+              },
+              {
+                "dependentTasksOutputFiles": "**/*.js",
+                "transitive": true
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist/coverage/user-ui"
+            ],
+            "dependsOn": [
+              "test-ci--src/app/app.spec.tsx"
+            ],
+            "metadata": {
+              "technologies": [
+                "vitest"
+              ],
+              "description": "Run Vitest Tests in CI",
+              "nonAtomizedTarget": "test",
+              "help": {
+                "command": "pnpm exec vitest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "configurations": {},
+            "options": {},
+            "parallelism": true
+          },
+          "start": {
+            "executor": "@nx/vite:dev-server",
+            "options": {
+              "buildTarget": "user-ui:build",
+              "port": 4300,
+              "host": "localhost"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "continuous": true
+          }
+        },
+        "projectType": "application",
+        "metadata": {
+          "targetGroups": {
+            "TEST (CI)": [
+              "test-ci",
+              "test-ci--src/app/app.spec.tsx"
+            ]
+          }
+        },
+        "name": "user-ui",
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "user-ui/src",
+        "implicitDependencies": [],
+        "tags": []
+      }
+    },
     "user-ui-e2e": {
       "name": "user-ui-e2e",
       "type": "e2e",
@@ -345,49 +691,13 @@
             "parallelism": true
           },
           "e2e": {
+            "executor": "@nx/playwright:playwright",
             "options": {
-              "cwd": "user-ui-e2e",
-              "command": "playwright test"
+              "config": "user-ui-e2e/playwright.config.ts"
             },
-            "metadata": {
-              "technologies": [
-                "playwright"
-              ],
-              "description": "Runs Playwright Tests",
-              "help": {
-                "command": "pnpm exec playwright test --help",
-                "example": {
-                  "options": {
-                    "workers": 1
-                  }
-                }
-              }
-            },
-            "dependsOn": [
-              {
-                "projects": [
-                  "user-ui"
-                ],
-                "target": "preview"
-              }
-            ],
-            "cache": true,
-            "inputs": [
-              "default",
-              "^default",
-              {
-                "externalDependencies": [
-                  "@playwright/test"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/dist/.playwright/user-ui-e2e/test-output",
-              "{workspaceRoot}/dist/.playwright/user-ui-e2e/playwright-report"
-            ],
-            "executor": "nx:run-commands",
             "configurations": {},
-            "parallelism": true
+            "parallelism": true,
+            "cache": true
           },
           "e2e-ci--src/example.spec.ts": {
             "options": {
@@ -417,7 +727,7 @@
                 "projects": [
                   "user-ui"
                 ],
-                "target": "preview"
+                "target": "serve"
               }
             ],
             "cache": true,
@@ -523,10 +833,10 @@
         "$schema": "../node_modules/nx/schemas/project-schema.json",
         "projectType": "application",
         "sourceRoot": "user-ui-e2e/src",
-        "tags": [],
         "implicitDependencies": [
           "user-ui"
-        ]
+        ],
+        "tags": []
       }
     },
     "admin-ui": {
@@ -660,29 +970,14 @@
             "parallelism": true
           },
           "serve": {
-            "continuous": true,
+            "executor": "@nx/vite:dev-server",
             "options": {
-              "cwd": "admin-ui",
-              "command": "vite"
+              "port": 4200,
+              "host": "localhost"
             },
-            "metadata": {
-              "technologies": [
-                "vite"
-              ],
-              "description": "Starts Vite dev server",
-              "help": {
-                "command": "pnpm exec vite --help",
-                "example": {
-                  "options": {
-                    "port": 3000
-                  }
-                }
-              },
-              "deprecated": "Use devTargetName instead. This option will be removed in Nx 22."
-            },
-            "executor": "nx:run-commands",
             "configurations": {},
-            "parallelism": true
+            "parallelism": true,
+            "continuous": true
           },
           "dev": {
             "continuous": true,
@@ -885,6 +1180,16 @@
             "configurations": {},
             "options": {},
             "parallelism": true
+          },
+          "start": {
+            "executor": "@nx/vite:dev-server",
+            "options": {
+              "port": 4200,
+              "host": "localhost"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "continuous": true
           }
         },
         "projectType": "application",
@@ -898,383 +1203,9 @@
         },
         "name": "admin-ui",
         "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "admin-ui/src",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "user-ui": {
-      "name": "user-ui",
-      "type": "app",
-      "data": {
-        "root": "user-ui",
-        "targets": {
-          "lint": {
-            "cache": true,
-            "options": {
-              "cwd": "user-ui",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/user-ui/.eslintrc.json",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "pnpm exec eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "test": {
-            "cache": true,
-            "inputs": [
-              "default",
-              "^default",
-              {
-                "externalDependencies": [
-                  "vitest"
-                ]
-              },
-              {
-                "env": "CI"
-              },
-              {
-                "dependentTasksOutputFiles": "**/*.js",
-                "transitive": true
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/coverage/user-ui"
-            ],
-            "metadata": {
-              "technologies": [
-                "vite",
-                "vitest"
-              ],
-              "description": "Run Vitest tests",
-              "help": {
-                "command": "pnpm exec vitest --help",
-                "example": {
-                  "options": {
-                    "bail": 1,
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "options": {
-              "cwd": "user-ui",
-              "command": "vitest"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "build": {
-            "options": {
-              "cwd": "user-ui",
-              "command": "vite build"
-            },
-            "cache": true,
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "default",
-              "^default",
-              {
-                "externalDependencies": [
-                  "vite"
-                ]
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/dist/user-ui"
-            ],
-            "metadata": {
-              "technologies": [
-                "vite"
-              ],
-              "description": "Run Vite build",
-              "help": {
-                "command": "pnpm exec vite build --help",
-                "example": {
-                  "options": {
-                    "sourcemap": true,
-                    "manifest": "manifest.json"
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "serve": {
-            "continuous": true,
-            "options": {
-              "cwd": "user-ui",
-              "command": "vite"
-            },
-            "metadata": {
-              "technologies": [
-                "vite"
-              ],
-              "description": "Starts Vite dev server",
-              "help": {
-                "command": "pnpm exec vite --help",
-                "example": {
-                  "options": {
-                    "port": 3000
-                  }
-                }
-              },
-              "deprecated": "Use devTargetName instead. This option will be removed in Nx 22."
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "dev": {
-            "continuous": true,
-            "options": {
-              "cwd": "user-ui",
-              "command": "vite"
-            },
-            "metadata": {
-              "technologies": [
-                "vite"
-              ],
-              "description": "Starts Vite dev server",
-              "help": {
-                "command": "pnpm exec vite --help",
-                "example": {
-                  "options": {
-                    "port": 3000
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "preview": {
-            "continuous": true,
-            "dependsOn": [
-              "build"
-            ],
-            "options": {
-              "cwd": "user-ui",
-              "command": "vite preview"
-            },
-            "metadata": {
-              "technologies": [
-                "vite"
-              ],
-              "description": "Locally preview Vite production build",
-              "help": {
-                "command": "pnpm exec vite preview --help",
-                "example": {
-                  "options": {
-                    "port": 3000
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "serve-static": {
-            "continuous": true,
-            "executor": "@nx/web:file-server",
-            "options": {
-              "buildTarget": "build",
-              "spa": true
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "typecheck": {
-            "cache": true,
-            "inputs": [
-              "default",
-              "^default",
-              {
-                "externalDependencies": [
-                  "typescript"
-                ]
-              }
-            ],
-            "options": {
-              "cwd": "user-ui",
-              "command": "tsc --noEmit -p tsconfig.app.json"
-            },
-            "metadata": {
-              "description": "Runs type-checking for the project.",
-              "technologies": [
-                "typescript"
-              ],
-              "help": {
-                "command": "pnpm exec tsc -p tsconfig.app.json --help",
-                "example": {
-                  "options": {
-                    "noEmit": true
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "build-deps": {
-            "dependsOn": [
-              "^build"
-            ],
-            "configurations": {},
-            "options": {},
-            "parallelism": true,
-            "executor": "nx:noop"
-          },
-          "watch-deps": {
-            "continuous": true,
-            "dependsOn": [
-              "build-deps"
-            ],
-            "executor": "nx:run-commands",
-            "options": {
-              "command": "pnpm exec nx watch --projects user-ui --includeDependentProjects -- pnpm exec nx build-deps user-ui"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "test-ci--src/app/app.spec.tsx": {
-            "cache": true,
-            "inputs": [
-              "default",
-              "^default",
-              {
-                "externalDependencies": [
-                  "vitest"
-                ]
-              },
-              {
-                "env": "CI"
-              },
-              {
-                "dependentTasksOutputFiles": "**/*.js",
-                "transitive": true
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/coverage/user-ui"
-            ],
-            "options": {
-              "cwd": "user-ui",
-              "command": "vitest run src/app/app.spec.tsx"
-            },
-            "metadata": {
-              "technologies": [
-                "vitest"
-              ],
-              "description": "Run Vitest Tests in src/app/app.spec.tsx",
-              "help": {
-                "command": "pnpm exec vitest --help",
-                "example": {
-                  "options": {
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "test-ci": {
-            "executor": "nx:noop",
-            "cache": true,
-            "inputs": [
-              "default",
-              "^default",
-              {
-                "externalDependencies": [
-                  "vitest"
-                ]
-              },
-              {
-                "env": "CI"
-              },
-              {
-                "dependentTasksOutputFiles": "**/*.js",
-                "transitive": true
-              }
-            ],
-            "outputs": [
-              "{workspaceRoot}/coverage/user-ui"
-            ],
-            "dependsOn": [
-              "test-ci--src/app/app.spec.tsx"
-            ],
-            "metadata": {
-              "technologies": [
-                "vitest"
-              ],
-              "description": "Run Vitest Tests in CI",
-              "nonAtomizedTarget": "test",
-              "help": {
-                "command": "pnpm exec vitest --help",
-                "example": {
-                  "options": {
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "configurations": {},
-            "options": {},
-            "parallelism": true
-          }
-        },
-        "projectType": "application",
-        "metadata": {
-          "targetGroups": {
-            "TEST (CI)": [
-              "test-ci",
-              "test-ci--src/app/app.spec.tsx"
-            ]
-          }
-        },
-        "name": "user-ui",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "user-ui/src",
-        "tags": [],
-        "implicitDependencies": []
+        "implicitDependencies": [],
+        "tags": []
       }
     }
   },
@@ -3007,13 +2938,22 @@
         "hash": "sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew=="
       }
     },
-    "npm:@eslint/eslintrc": {
+    "npm:@eslint/eslintrc@2.1.4": {
       "type": "npm",
-      "name": "npm:@eslint/eslintrc",
+      "name": "npm:@eslint/eslintrc@2.1.4",
       "data": {
         "version": "2.1.4",
         "packageName": "@eslint/eslintrc",
         "hash": "sha512-269Z39MS6wVJtsoUl10L60WdkhJVdPG24Q4eZTH3nnF6lpvSShEK3wQjDX9JRWAUPvPh7COouPpU9IrqaZFvtQ=="
+      }
+    },
+    "npm:@eslint/eslintrc": {
+      "type": "npm",
+      "name": "npm:@eslint/eslintrc",
+      "data": {
+        "version": "3.3.5",
+        "packageName": "@eslint/eslintrc",
+        "hash": "sha512-4IlJx0X0qftVsN5E+/vGujTRIFtwuLbNsVUe7TO6zYPDR1O6nFwvwhIKEKSrl6dZchmYBITazxKoUYOjdtjlRg=="
       }
     },
     "npm:@eslint/js": {
@@ -10774,6 +10714,15 @@
         "hash": "sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag=="
       }
     },
+    "npm:eslint-visitor-keys@4.2.1": {
+      "type": "npm",
+      "name": "npm:eslint-visitor-keys@4.2.1",
+      "data": {
+        "version": "4.2.1",
+        "packageName": "eslint-visitor-keys",
+        "hash": "sha512-Uhdk5sfqcee/9H/rCOJikYz67o0a2Tw2hGRPOG2Y1R2dg7brRe1uG0yaNQDHu+TO/uQPF/5eCapvYSmHUjt7JQ=="
+      }
+    },
     "npm:eslint-visitor-keys@5.0.1": {
       "type": "npm",
       "name": "npm:eslint-visitor-keys@5.0.1",
@@ -10801,9 +10750,18 @@
         "hash": "sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA=="
       }
     },
-    "npm:espree": {
+    "npm:espree@10.4.0": {
       "type": "npm",
-      "name": "npm:espree",
+      "name": "npm:espree@10.4.0",
+      "data": {
+        "version": "10.4.0",
+        "packageName": "espree",
+        "hash": "sha512-j6PAQ2uUr79PZhBjP5C5fhl8e39FmRnOjsD5lGnWrFU8i2G776tBK7+nP8KuQUTTyAZUwfQqXAgrVH5MbH9CYQ=="
+      }
+    },
+    "npm:espree@9.6.1": {
+      "type": "npm",
+      "name": "npm:espree@9.6.1",
       "data": {
         "version": "9.6.1",
         "packageName": "espree",
@@ -11789,6 +11747,15 @@
         "version": "13.24.0",
         "packageName": "globals",
         "hash": "sha512-AhO5QUcj8llrbG09iWhPU2B204J1xnPeL8kQmVorSsy+Sjj1sk8gIyh6cUocGmH4L0UuhAJy+hJMRA4mgA4mFQ=="
+      }
+    },
+    "npm:globals@14.0.0": {
+      "type": "npm",
+      "name": "npm:globals@14.0.0",
+      "data": {
+        "version": "14.0.0",
+        "packageName": "globals",
+        "hash": "sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ=="
       }
     },
     "npm:globals@15.15.0": {
@@ -20405,6 +20372,38 @@
         "type": "static"
       }
     ],
+    "user-ui": [
+      {
+        "source": "user-ui",
+        "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "user-ui",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "user-ui",
+        "target": "npm:react-dom",
+        "type": "static"
+      },
+      {
+        "source": "user-ui",
+        "target": "npm:vite",
+        "type": "static"
+      },
+      {
+        "source": "user-ui",
+        "target": "npm:@vitejs/plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "user-ui",
+        "target": "npm:@nx/vite",
+        "type": "static"
+      }
+    ],
     "user-ui-e2e": [
       {
         "source": "user-ui-e2e",
@@ -20455,38 +20454,6 @@
       },
       {
         "source": "admin-ui",
-        "target": "npm:@nx/vite",
-        "type": "static"
-      }
-    ],
-    "user-ui": [
-      {
-        "source": "user-ui",
-        "target": "npm:@testing-library/react",
-        "type": "static"
-      },
-      {
-        "source": "user-ui",
-        "target": "npm:react",
-        "type": "static"
-      },
-      {
-        "source": "user-ui",
-        "target": "npm:react-dom",
-        "type": "static"
-      },
-      {
-        "source": "user-ui",
-        "target": "npm:vite",
-        "type": "static"
-      },
-      {
-        "source": "user-ui",
-        "target": "npm:@vitejs/plugin-react",
-        "type": "static"
-      },
-      {
-        "source": "user-ui",
         "target": "npm:@nx/vite",
         "type": "static"
       }
@@ -24680,6 +24647,53 @@
         "type": "static"
       }
     ],
+    "npm:@eslint/eslintrc@2.1.4": [
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:ajv@6.15.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:debug@4.4.3",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:espree@9.6.1",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:globals@13.24.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:ignore@5.3.2",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:import-fresh",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:js-yaml@4.1.1",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:minimatch@3.1.5",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint/eslintrc@2.1.4",
+        "target": "npm:strip-json-comments",
+        "type": "static"
+      }
+    ],
     "npm:@eslint/eslintrc": [
       {
         "source": "npm:@eslint/eslintrc",
@@ -24693,12 +24707,12 @@
       },
       {
         "source": "npm:@eslint/eslintrc",
-        "target": "npm:espree",
+        "target": "npm:espree@10.4.0",
         "type": "static"
       },
       {
         "source": "npm:@eslint/eslintrc",
-        "target": "npm:globals@13.24.0",
+        "target": "npm:globals@14.0.0",
         "type": "static"
       },
       {
@@ -32837,7 +32851,7 @@
     "npm:brace-expansion@5.0.2": [
       {
         "source": "npm:brace-expansion@5.0.2",
-        "target": "npm:balanced-match@4.0.3",
+        "target": "npm:balanced-match@4.0.4",
         "type": "static"
       }
     ],
@@ -35403,7 +35417,7 @@
       },
       {
         "source": "npm:eslint",
-        "target": "npm:@eslint/eslintrc",
+        "target": "npm:@eslint/eslintrc@2.1.4",
         "type": "static"
       },
       {
@@ -35473,7 +35487,7 @@
       },
       {
         "source": "npm:eslint",
-        "target": "npm:espree",
+        "target": "npm:espree@9.6.1",
         "type": "static"
       },
       {
@@ -35582,19 +35596,36 @@
         "type": "static"
       }
     ],
-    "npm:espree": [
+    "npm:espree@10.4.0": [
       {
-        "source": "npm:espree",
+        "source": "npm:espree@10.4.0",
         "target": "npm:acorn@8.16.0",
         "type": "static"
       },
       {
-        "source": "npm:espree",
+        "source": "npm:espree@10.4.0",
         "target": "npm:acorn-jsx",
         "type": "static"
       },
       {
-        "source": "npm:espree",
+        "source": "npm:espree@10.4.0",
+        "target": "npm:eslint-visitor-keys@4.2.1",
+        "type": "static"
+      }
+    ],
+    "npm:espree@9.6.1": [
+      {
+        "source": "npm:espree@9.6.1",
+        "target": "npm:acorn@8.16.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:espree@9.6.1",
+        "target": "npm:acorn-jsx",
+        "type": "static"
+      },
+      {
+        "source": "npm:espree@9.6.1",
         "target": "npm:eslint-visitor-keys@3.4.3",
         "type": "static"
       }
@@ -40670,7 +40701,7 @@
       },
       {
         "source": "npm:jsonc-eslint-parser",
-        "target": "npm:espree",
+        "target": "npm:espree@9.6.1",
         "type": "static"
       },
       {
@@ -49520,5 +49551,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1778240078724
+  "computedAt": 1778368734850
 }

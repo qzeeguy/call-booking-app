@@ -8,14 +8,14 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "pnpm nodemon server.js",
-        "cwd": "apps/admin-api"
+        "cwd": "apps/user-api"
       }
     },
     "start": {
       "executor": "nx:run-commands",
       "options": {
         "command": "node server.js",
-        "cwd": "apps/admin-api"
+        "cwd": "apps/user-api"
       }
     }
   },

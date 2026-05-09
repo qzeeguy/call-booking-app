@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run user-ui:dev",
+    "startTime": "2026-05-09T23:18:55.138Z",
+    "endTime": "2026-05-09T23:20:06.091Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "user-ui:dev",
+      "target": "dev",
+      "projectName": "user-ui",
+      "hash": "8846231072625113055",
+      "startTime": "2026-05-09T23:18:55.148Z",
+      "endTime": "2026-05-09T23:20:06.090Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}
