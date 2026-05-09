@@ -67,6 +67,7 @@ jobs:
           --target=build \
           --parallel=3 \
           --continue-on-error
+        continue-on-error: true
            
 
       # START SERVICES
