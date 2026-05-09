@@ -106,7 +106,6 @@ jobs:
           if-no-files-found: ignore
 
       # NX SELF-HEALING
-      - name: Nx self-healing
+      - name: Nx self-healings
         if: always()
         run: pnpm nx fix-ci
-``
