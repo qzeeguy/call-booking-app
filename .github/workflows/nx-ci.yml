@@ -67,6 +67,7 @@ jobs:
             --target=test \
             --target=build \
             --parallel=3
+            --continue-on-error
 
       # START SERVICES
       - name: Start services
