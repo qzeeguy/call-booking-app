@@ -101,8 +101,11 @@ jobs:
         with:
           name: playwright-report
           path: |
-            playwright-report
-            test-results
+            
+            dist/.playwright/**/playwright-report
+            dist/.playwright/**/test-results
+            if-no-files-found: ignore
+
 
       # NX SELF-HEALING
       - name: Nx self-healing
